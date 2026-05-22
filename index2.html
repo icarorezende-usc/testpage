@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-cb-test-nonce-abc123' https://consent.cookiebot.com 
-  https://consentcdn.cookiebot.com https://consentcdn.cookiebot.eu https://dev-consentcdn-cookiebot-com.cookiebot.dev 
-  https://dev-consentcdn-cookiebot-eu.cookiebot.dev; style-src 'nonce-cb-test-nonce-abc123'; img-src 'self' data: https://consentcdn.cookiebot.com 
-  https://consentcdn.cookiebot.eu https://dev-consentcdn-cookiebot-com.cookiebot.dev https://dev-consentcdn-cookiebot-eu.cookiebot.dev; connect-src 
-  https://consent.cookiebot.com https://consentcdn.cookiebot.com https://consentcdn.cookiebot.eu https://dev-consentcdn-cookiebot-com.cookiebot.dev 
-  https://dev-consentcdn-cookiebot-eu.cookiebot.dev; frame-src https://consentcdn.cookiebot.com https://consentcdn.cookiebot.eu 
-  https://dev-consentcdn-cookiebot-com.cookiebot.dev https://dev-consentcdn-cookiebot-eu.cookiebot.dev; font-src data:;">
+     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-cb-test-nonce-abc123' 
+  http://localhost:7201; style-src 'nonce-cb-test-nonce-abc123'; img-src 'self' data: 
+  https://dev-consentcdn-cookiebot-com.cookiebot.dev https://dev-consentcdn-cookiebot-eu.cookiebot.dev; connect-src 'self' http://localhost:* ws://localhost:*
+  http://localhost:7201 https://dev-consentcdn-cookiebot-com.cookiebot.dev https://dev-consentcdn-cookiebot-eu.cookiebot.dev; frame-src
+   http://localhost:7201 https://dev-consentcdn-cookiebot-com.cookiebot.dev https://dev-consentcdn-cookiebot-eu.cookiebot.dev; font-src
+   data:;">
     <title>CSP Nonce Test — cb-consent-service EUD-5587</title>
     <style nonce="cb-test-nonce-abc123">
       *, *::before, *::after { box-sizing: border-box; }
@@ -114,11 +113,10 @@
       <pre id="csp-display"></pre>
     </div>
 
-    <script
+     <script
     id="Cookiebot"
-    src="./uc.js"
+    src="https://localhost:7201/uc.js"
     data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060"
-    data-host="https://dev-consent-cookiebot-com.cookiebot.dev/"
     nonce="cb-test-nonce-abc123"
     async
     ></script>
