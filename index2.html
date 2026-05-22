@@ -1,76 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- LOCALHOST -->
-        <!-- <script id="Cookiebot" src="https://localhost:7201/uc.js" data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060" type="text/javascript" nonce="test"></script> -->
-        <!-- DEV -->
-        <script id="Cookiebot" src="https://dev-consent-cookiebot-com.cookiebot.dev/uc.js" data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060" type="text/javascript" data-blockingmode="auto"></script>
-        <!-- PRE PROD -->
-        <!-- <script id="Cookiebot" src="https://preprod-consent-cookiebot-com.cookiebot.dev/uc.js" data-cbid="162cbed3-b87f-41da-bcab-cc11cadc70fa" type="text/javascript" data-blockingmode="auto"></script> -->
-        <!-- PROD -->
-        <!-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-culture="nl" data-country="nl" data-cbid="162cbed3-b87f-41da-bcab-cc11cadc70fa" type="text/javascript" data-blockingmode="auto"></script> -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cookiebot demo site</title>
-        <!-- <script id="Cookiebot" src="https://localhost:7201/uc.js" data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060" data-framework="TCFv2.2" data-nonce="testIcaro" type="text/javascript" async></script>
-        <script id="CookiebotConfiguration" type="application/json" data-cookieconsent="ignore">
-            {
-                "Frameworks": {
-                    "IABTCF2": {
-                        "AllowedVendors": [
-                            2,
-                            6,
-                            8
-                        ],
-                        "AllowedGoogleACVendors": [
-                        ],
-                        "AllowedPurposes": [
-                            1,
-                            2
-                        ],
-                        "AllowedSpecialFeatures": [
-                            1
-                        ],
-                        "VendorRestrictions": [
-                            {
-                                "VendorId": 2,
-                                "DisallowPurposes": [
-                                    2,
-                                    3,
-                                    4
-                                ]
-                            }
-                        ]
-                    }
-                }
-            }</script> -->
-    </head>
-    <body></body>
-    <script id="cookiebot-visitor-analytics-snippet">
-        (function(v, i, s, a, t) {
-            v[t] = v[t] || function() {
-                (v[t].v = v[t].v || []).push(arguments)
-            }
-            ;
-            if (!v._visaSettings) {
-                v._visaSettings = {}
-            }
-            v._visaSettings[a] = {
-                v: '1.0',
-                s: a,
-                a: '1',
-                t: t
-            };
-            var b = i.getElementsByTagName('body')[0];
-            var p = i.createElement('script');
-            p.defer = 1;
-            p.async = 1;
-            p.src = s + '?s=' + a;
-            p.id = 'cookiebot-visitor-analytics';
-            b.appendChild(p)
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-cb-test-nonce-abc123' https://consent.cookiebot.com 
+  https://consentcdn.cookiebot.com https://consentcdn.cookiebot.eu; style-src 'nonce-cb-test-nonce-abc123'; img-src 'self' data: https://consentcdn.cookiebot.com
+   https://consentcdn.cookiebot.eu; connect-src https://consent.cookiebot.com https://consentcdn.cookiebot.com https://consentcdn.cookiebot.eu; frame-src 
+  https://consentcdn.cookiebot.com https://consentcdn.cookiebot.eu; font-src data:;">
+    <title>CSP Nonce Test — cb-consent-service EUD-5587</title>
+    <style nonce="cb-test-nonce-abc123">
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 24px;
+        color: #1a1a1a;
+        background: #f5f5f5;
+      }
+      h1 { font-size: 1.4rem; margin-bottom: 4px; }
+      .meta { font-size: 0.85rem; color: #666; margin-bottom: 24px; font-family: monospace; }
+      .panel {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px 24px;
+        margin-bottom: 24px;
+      }
+      .panel h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 0 0 16px; }
+      .check {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+      .check:last-child { border-bottom: none; }
+      .check .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+      .check.pass .icon::before { content: "✓"; color: #16a34a; }
+      .check.fail .icon::before { content: "✗"; color: #dc2626; }
+      .check.pending .icon::before { content: "⏳"; }
+      .check .label { font-weight: 600; }
+      .check .detail { color: #555; font-size: 0.88rem; font-family: monospace; margin-top: 2px; }
+      .violation-item {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 4px;
+        padding: 6px 10px;
+        margin-top: 6px;
+        font-size: 0.82rem;
+        font-family: monospace;
+        color: #991b1b;
+      }
+      .csp-panel pre {
+        font-size: 0.78rem;
+        white-space: pre-wrap;
+        word-break: break-all;
+        margin: 0;
+        color: #374151;
+        line-height: 1.6;
+      }
+      .section-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #9ca3af;
+        margin-bottom: 6px;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <h1>CSP Nonce Test — cb-consent-service</h1>
+    <div class="meta">Branch: feat/EUD-5587-propagate-nonce-for-csp-compliance &nbsp;|&nbsp; CBID: 88c50b37-685e-4c5f-a166-ce1de4d70060</div>
+
+    <div class="panel">
+      <h2>Test Results</h2>
+  
+      <div class="check pending" id="check-nonce">
+        <span class="icon"></span>
+        <div>
+          <div class="label">Nonce propagated</div>
+          <div class="detail" id="check-nonce-detail">Waiting for CookiebotOnLoad…</div>
+        </div>
+      </div>
+  
+      <div class="check pending" id="check-violations">
+        <span class="icon"></span>
+        <div>
+          <div class="label">No CSP violations</div>
+          <div class="detail" id="check-violations-detail">Listening…</div>
+          <div id="violation-list"></div>
+        </div>
+      </div>
+
+      <div class="check pending" id="check-banner">
+        <span class="icon"></span>
+        <div>
+          <div class="label">Banner rendered</div>
+          <div class="detail" id="check-banner-detail">Waiting for CookiebotOnLoad…</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="panel csp-panel">
+      <div class="section-label">CSP in effect</div>
+      <pre id="csp-display"></pre>
+    </div>
+  
+    <script
+      id="Cookiebot"
+      src="./uc.js"
+      data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060"
+      nonce="cb-test-nonce-abc123"
+      async
+    ></script>
+  
+    <script nonce="cb-test-nonce-abc123">
+      var violations = [];
+
+      document.addEventListener('securitypolicyviolation', function (e) {
+        violations.push({
+          uri: e.blockedURI || '(empty)',
+          directive: e.violatedDirective,
+          source: e.sourceFile ? e.sourceFile + ':' + e.lineNumber : ''
+        });
+        renderViolationCheck();
+      });
+
+      function setCheck(id, pass, detail) {
+        var el = document.getElementById(id);
+        el.className = 'check ' + (pass ? 'pass' : 'fail');
+        document.getElementById(id + '-detail').textContent = detail;
+      }
+
+      function renderViolationCheck() {
+        var list = document.getElementById('violation-list');
+        if (violations.length === 0) {
+          setCheck('check-violations', true, 'None detected');
+          list.innerHTML = '';
+        } else {
+          setCheck('check-violations', false, violations.length + ' violation(s) captured');
+          list.innerHTML = violations.map(function (v) {
+            return '<div class="violation-item">blocked: ' + v.uri +
+              ' &nbsp;|&nbsp; directive: ' + v.directive +
+              (v.source ? ' &nbsp;|&nbsp; source: ' + v.source : '') +
+              '</div>';
+          }).join('');
         }
-        )(window, document, '//app-worker.visitor-analytics.io/main.js', '88c50b37-685e-4c5f-a166-ce1de4d70060', 'va')
+      }
+  
+      function runChecks() {
+        var nonce = window.CookieConsent && window.CookieConsent.nonce;
+        if (nonce) {
+          setCheck('check-nonce', true, 'window.CookieConsent.nonce = "' + nonce + '"');
+        } else {
+          setCheck('check-nonce', false,
+            'window.CookieConsent.nonce is empty — uc.js did not read the nonce from the script tag');
+        }
+
+        renderViolationCheck();
+  
+        var banner = document.getElementById('CybotCookiebotDialog');
+        if (banner) {
+          setCheck('check-banner', true, '#CybotCookiebotDialog found in DOM');
+        } else {
+          setCheck('check-banner', false,
+            '#CybotCookiebotDialog not found — banner may be blocked or consent already given');
+        }
+      }
+  
+      var metaCSP = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+      if (metaCSP) {
+        document.getElementById('csp-display').textContent =
+          metaCSP.getAttribute('content').replace(/;\s*/g, ';\n');
+      }
+  
+      var checked = false;
+      function onceChecks() {
+        if (checked) return;
+        checked = true;
+        runChecks();
+      }
+  
+      window.CookiebotOnLoad = onceChecks;
+      setTimeout(onceChecks, 5000);
     </script>
-    <script defer="" async="" src="//app-worker.visitor-analytics.io/main.js?s=88c50b37-685e-4c5f-a166-ce1de4d70060" id="cookiebot-visitor-analytics"></script>
-</html>
+  
+  </body>
+  </html>
