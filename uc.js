@@ -2374,7 +2374,7 @@
 
             if (d) {
                 this.scriptElement = d;
-                this.host = "https://" + d.src.match(/:\/\/(.[^/]+)/)[1] + "/";
+                this.host = d.getAttribute("data-host") || ("https://" + d.src.match(/:\/\/(.[^/]+)/)[1] + "/");
 
                 function hostHasSuffix(host, suffix) {
                     var fromIndex = host.length - suffix.length;
