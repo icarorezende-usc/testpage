@@ -189,6 +189,32 @@
       window.CookiebotOnLoad = onceChecks;
       setTimeout(onceChecks, 5000);
     </script>
+    <script id="cookiebot-visitor-analytics-snippet" nonce="cb-test-nonce-abc123">
+        (function(v, i, s, a, t) {
+            v[t] = v[t] || function() {
+                (v[t].v = v[t].v || []).push(arguments)
+            }
+            ;
+            if (!v._visaSettings) {
+                v._visaSettings = {}
+            }
+            v._visaSettings[a] = {
+                v: '1.0',
+                s: a,
+                a: '1',
+                t: t
+            };
+            var b = i.getElementsByTagName('body')[0];
+            var p = i.createElement('script');
+            p.defer = 1;
+            p.async = 1;
+            p.src = s + '?s=' + a;
+            p.id = 'cookiebot-visitor-analytics';
+            b.appendChild(p)
+        }
+        )(window, document, '//app-worker.visitor-analytics.io/main.js', '88c50b37-685e-4c5f-a166-ce1de4d70060', 'va')
+    </script>
+    <script defer="" async="" src="//app-worker.visitor-analytics.io/main.js?s=88c50b37-685e-4c5f-a166-ce1de4d70060" id="cookiebot-visitor-analytics" nonce="cb-test-nonce-abc123"></script>
   
   </body>
   </html>
