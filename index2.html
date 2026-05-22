@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- LOCALHOST -->
+        <!-- <script id="Cookiebot" src="https://localhost:7201/uc.js" data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060" type="text/javascript" nonce="test"></script> -->
+        <!-- DEV -->
+        <script id="Cookiebot" src="https://dev-consent-cookiebot-com.cookiebot.dev/uc.js" data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060" type="text/javascript" data-blockingmode="auto"></script>
+        <!-- PRE PROD -->
+        <!-- <script id="Cookiebot" src="https://preprod-consent-cookiebot-com.cookiebot.dev/uc.js" data-cbid="162cbed3-b87f-41da-bcab-cc11cadc70fa" type="text/javascript" data-blockingmode="auto"></script> -->
+        <!-- PROD -->
+        <!-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-culture="nl" data-country="nl" data-cbid="162cbed3-b87f-41da-bcab-cc11cadc70fa" type="text/javascript" data-blockingmode="auto"></script> -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cookiebot demo site</title>
+        <!-- <script id="Cookiebot" src="https://localhost:7201/uc.js" data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060" data-framework="TCFv2.2" data-nonce="testIcaro" type="text/javascript" async></script>
+        <script id="CookiebotConfiguration" type="application/json" data-cookieconsent="ignore">
+            {
+                "Frameworks": {
+                    "IABTCF2": {
+                        "AllowedVendors": [
+                            2,
+                            6,
+                            8
+                        ],
+                        "AllowedGoogleACVendors": [
+                        ],
+                        "AllowedPurposes": [
+                            1,
+                            2
+                        ],
+                        "AllowedSpecialFeatures": [
+                            1
+                        ],
+                        "VendorRestrictions": [
+                            {
+                                "VendorId": 2,
+                                "DisallowPurposes": [
+                                    2,
+                                    3,
+                                    4
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }</script> -->
+    </head>
+    <body></body>
+    <script id="cookiebot-visitor-analytics-snippet">
+        (function(v, i, s, a, t) {
+            v[t] = v[t] || function() {
+                (v[t].v = v[t].v || []).push(arguments)
+            }
+            ;
+            if (!v._visaSettings) {
+                v._visaSettings = {}
+            }
+            v._visaSettings[a] = {
+                v: '1.0',
+                s: a,
+                a: '1',
+                t: t
+            };
+            var b = i.getElementsByTagName('body')[0];
+            var p = i.createElement('script');
+            p.defer = 1;
+            p.async = 1;
+            p.src = s + '?s=' + a;
+            p.id = 'cookiebot-visitor-analytics';
+            b.appendChild(p)
+        }
+        )(window, document, '//app-worker.visitor-analytics.io/main.js', '88c50b37-685e-4c5f-a166-ce1de4d70060', 'va')
+    </script>
+    <script defer="" async="" src="//app-worker.visitor-analytics.io/main.js?s=88c50b37-685e-4c5f-a166-ce1de4d70060" id="cookiebot-visitor-analytics"></script>
+</html>
