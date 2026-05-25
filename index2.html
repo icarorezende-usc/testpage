@@ -7,15 +7,19 @@
       default-src 'none';
       script-src 'nonce-cb-test-nonce-abc123' 'strict-dynamic';
       style-src 'nonce-cb-test-nonce-abc123';
-      img-src 'self' data:;
+      img-src 'self' data:
+        https://dev-consentcdn-cookiebot-com.cookiebot.dev
+        https://dev-consentcdn-cookiebot-eu.cookiebot.dev;
       font-src 'self';
-      connect-src 'self';
-      frame-src 'none';
+      connect-src 'self'
+        https://dev-consentcdn-cookiebot-com.cookiebot.dev
+        https://dev-consentcdn-cookiebot-eu.cookiebot.dev;
+      frame-src
+        https://dev-consentcdn-cookiebot-com.cookiebot.dev
+        https://dev-consentcdn-cookiebot-eu.cookiebot.dev;
       object-src 'none';
       base-uri 'none';
       form-action 'self';
-      frame-ancestors 'none';
-      upgrade-insecure-requests;
     ">
   <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-cb-test-nonce-abc123'; style-src 'nonce-cb-test-nonce-abc123'; img-src 'self' data: 
   https://dev-consentcdn-cookiebot-com.cookiebot.dev https://dev-consentcdn-cookiebot-eu.cookiebot.dev; connect-src 'self'
