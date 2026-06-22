@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>My CMP Test Page</title>    
     
-    <script id="usercentrics-cmp" src="https://web.cmp.usercentrics-sandbox.eu/ui/pr/1519/loader.js" data-settings-id="bqK8kb0Ca6px67" data-sandbox=1 async></script>
+    <script id="usercentrics-cmp" src="https://web.cmp.usercentrics-sandbox.eu/ui/pr/1528/loader.js" data-settings-id="bqK8kb0Ca6px67" data-sandbox=1 async></script>
     
     <!-- Google Analytics -->
     <script type="text/plain" data-usercentrics="Google Analytics">
@@ -41,6 +41,14 @@
     <h1>Usercentrics CMP Test Page</h1>
     This is a test page I'm using to implement my first Usercentrics CMP.
     <a href="/testpage/about.html">Go to about page</a>
+    <br>
+    <h1>Open CMP Layers</h1>
+    <h2>Button</h2>
+    <button onclick="UC_UI.showFirstLayer()">Open first layer</button>
+    <button onclick="UC_UI.showSecondLayer()">Open second layer</button>
+    <h2>Link</h2>
+    <a href="#" onclick="UC_UI.showFirstLayer(); return false;">Open first layer</a>
+    <a href="#" onclick="UC_UI.showSecondLayer(); return false;">Open second layer</a>
 </body>
 
 </html>
