@@ -210,13 +210,13 @@
 
     <!-- Simulate malicious code to run inside an iframe elsewhere -->
     <script>
-      window.parent.postMessage({
-        __uspapiCall: {
-          command: 'getUSPData',
-          version: 1,
-          callId: 'attack-1'
+      console.log("Posting messagem from attacker...");
+      window.__uspapi('getUSPData', 1, function(uspData, success) {
+        if (success) {
+          console.log("Consent String from iframe: " + uspData.uspString);
         }
-      }, '*');
+      });
+      console.log("Message posted...");
     </script>
   
   </body>
