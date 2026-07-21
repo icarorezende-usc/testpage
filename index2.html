@@ -88,12 +88,18 @@
         color: #9ca3af;
         margin-bottom: 6px;
       }
+      .consentString {
+        height: 50px; 
+        width: 100%;
+        color: red;
+      }
     </style>
   </head>
   <body>
   
     <h1>CSP Nonce Test — cb-consent-service</h1>
     <div class="meta">Branch: feat/EUD-5587-propagate-nonce-for-csp-compliance &nbsp;|&nbsp; CBID: 88c50b37-685e-4c5f-a166-ce1de4d70060</div>
+    <div id="consentStringId" class="consentString"></div>
 
     <div class="panel">
       <h2>Test Results</h2>
@@ -214,6 +220,8 @@
       window.__uspapi('getUSPData', 1, function(uspData, success) {
         if (success) {
           console.log("Consent String from iframe: " + uspData.uspString);
+          let consentDiv = document.getElementById("consentStringId");
+          consentDiv.innerHTML = uspData.uspString;
         }
       });
       console.log("Message posted...");
