@@ -88,18 +88,12 @@
         color: #9ca3af;
         margin-bottom: 6px;
       }
-      .consentString {
-        height: 50px; 
-        width: 100%;
-        color: red;
-      }
     </style>
   </head>
   <body>
   
     <h1>CSP Nonce Test — cb-consent-service</h1>
     <div class="meta">Branch: feat/EUD-5587-propagate-nonce-for-csp-compliance &nbsp;|&nbsp; CBID: 88c50b37-685e-4c5f-a166-ce1de4d70060</div>
-    <div id="consentStringId" class="consentString"></div>
 
     <div class="panel">
       <h2>Test Results</h2>
@@ -215,17 +209,27 @@
     </script>
 
     <!-- Simulate malicious code to run inside an iframe elsewhere -->
-    <script>
-      console.log("Posting messagem from attacker...");
-      window.__uspapi('getUSPData', 1, function(uspData, success) {
-        if (success) {
-          console.log("Consent String from iframe: " + uspData.uspString);
-          let consentDiv = document.getElementById("consentStringId");
-          consentDiv.innerHTML = uspData.uspString;
+    <script nonce="cb-test-nonce-abc123">
+      var uspResult = document.createElement('div');
+      uspResult.id = 'usp-leak-result';
+      uspResult.style.cssText = 'margin-top:20px;padding:12px;border-radius:6px;font-family:monospace;font-size:13px;background:#f5f5f5;border:1px solid #ddd;';
+      uspResult.textContent = 'Waiting for __uspapiReturn...';
+      document.body.appendChild(uspResult);
+    
+      window.addEventListener('message', function (e) {
+        if (e.data && e.data.__uspapiReturn) {
+          uspResult.style.background = '#fef2f2';
+          uspResult.style.border = '1px solid #fecaca';
+          uspResult.textContent = 'LEAKED from ' + e.origin + ': ' + JSON.stringify(e.data.__uspapiReturn);
+          document.title = 'LEAK DETECTED';
+          console.error('USP API DATA LEAKED', e.origin, e.data.__uspapiReturn);
         }
       });
-      console.log("Message posted...");
-    </script>
+    
+      window.parent.postMessage({
+        __uspapiCall: { command: 'getUSPData', version: 1, callId: 'attack-1' }
+      }, '*');
+</script>
   
   </body>
   </html>
