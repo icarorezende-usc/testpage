@@ -7,12 +7,12 @@
   </head>
   <body>
   
-    <h1>Ifram Test - cb-consent-service</h1>
+    <h1>Iframe Test - cb-consent-service</h1>
 
     <div class="panel">
     <h2>Test Results</h2>
   
-     <script
+  <script
     id="Cookiebot"
     src="https://dev-consent-cookiebot-com.cookiebot.dev/uc.js"
     data-cbid="88c50b37-685e-4c5f-a166-ce1de4d70060"
@@ -41,7 +41,12 @@
       window.parent.postMessage({
         __uspapiCall: { command: 'getUSPData', version: 1, callId: 'attack-1' }
       }, '*');
-</script>
+  </script>
+  <style>
+    * {
+      font-family: "Gill Sans", sans-serif;
+    }
+  </style>
   
   </body>
   </html>
